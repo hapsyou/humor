@@ -1,0 +1,54 @@
+
+.upper, .lower {
+    width: 100%;
+    height: 50vh;
+    z-index: 999;
+}
+
+.container {
+    display: flex;  /* 定义弹性容器 */
+    margin-top: 30px;  /* 定义元素的上外边距 */
+}
+
+.float-right {
+    position: absolute; /* 元素相对定位 */
+    top: 30px;
+    right: 50px;
+    border-radius: 25px;  /* 设置圆角属性 */
+    width: 100px;  /* 定义按钮的宽度 */
+    height: 30px;  /* 定义按钮的高度 */
+    border: none;  /* 设置边框属性 */
+	background-color: #61c965;
+    text-align: center;  /* 设置元素中的文本的水平对齐 */
+    font-size: 20px;  /* 设置元素的字体大小 */
+}
+
+.center {
+    border: 3px solid green;  /* 设置边框属性 */
+    padding: 20px;  /* 设置内边距属性 */
+    text-align: center;  /* 设置元素中的文本的水平对齐 */
+    position: absolute; /* 元素相对定位 */
+    left: 15%; /* 水平方向从15%开始 */
+    right: 15%;
+}
+
+.button-location {
+    display: flex; /* 定义弹性容器 */
+    position: absolute; /* 元素相对定位 */
+    top: 80%;  /* 距离父元素顶部80% */
+    left: 50%;  /* 距离父元素左边50% */
+}
+
+/*按钮*/
+button {
+    position: absolute;
+    transform: translate(-50%); /* 水平和垂直方向各自偏移自身尺寸的50% */
+    background-color: #4CAF50; /* 背景颜色：Green */
+    border: none;  /* 设置边框属性 */
+    color: white;  /* 设置字体颜色 */
+    text-align: center;  /* 设置元素中的文本的水平对齐 */
+    font-size: 30px;  /* 设置元素的字体大小 */
+    border-radius: 30px;  /* 设置圆角属性 */
+    width: 200px;  /* 定义按钮的宽度 */
+    height: 50px;  /* 定义按钮的高度 */
+}

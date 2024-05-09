@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<title>毒鸡汤 - 壮士可要来一碗！</title>
+	<meta name="description" content="我们精心熬制了有屎以来最毒1000多条经典毒鸡汤,句句“治愈”人心! 只为了帮你更好的看清人生认识自己，直面现实,直面惨淡的人生,不给你励志,不给你慰藉,像一根鞭猛的抽你一下,使你清醒,知道这个世界和你自己最真实的一面,是青少年手机里的必备宝典。">
+	<meta name="keywords" content="鸡汤,毒鸡汤,馊鸡汤">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<meta name="author" content="yatang@126.com" />
+	<meta property="og:title" content="毒鸡汤 - 壮士可要来一碗！" />
+	<meta property="og:url" content="https://www.jecc.top/" />
+	<meta property="og:image" content="https://www.jecc.top/icon.png" />
+	<meta property="og:site_name" content="毒鸡汤 - 壮士可要来一碗！" />
+	<meta property="og:description" content="我们精心熬制了有屎以来最毒1000多条经典毒鸡汤,句句“治愈”人心! 只为了帮你更好的看清人生认识自己，直面现实,直面惨淡的人生,不给你励志,不给你慰藉,像一根鞭猛的抽你一下,使你清醒,知道这个世界和你自己最真实的一面,是青少年手机里的必备宝典。"/>
+	<link rel="stylesheet" type="text/css" href="../static/css/min.css">
+	<script>
+		// 定义一个更新 span 内容的函数 */
+		function updateSpanContent(newcontent) {
+			// 获取 class 为 'center' 的 div 中的第一个 span 元素
+			const span = document.querySelector('.center span');
+			// 更新 span 的内容
+			span.textContent = newcontent;
+		}
+
+		// 页面加载完成后，自动更新一次 span 的内容
+		window.onload = function() {
+			fetchData();
+		};
+		function fetchData() {
+			// 使用fetch发送GET请求
+			fetch('https://www.jecc.top/index')
+				.then(function(response) {
+					// 确保请求成功
+					if (!response.ok) {
+						throw new Error('网络响应错误');
+					}
+					// 解析响应的JSON数据
+					return response.json();
+				})
+				.then(function(data) {
+					// 更新span标签的内容
+					updateSpanContent(data);
+				})
+				.catch(function(error) {
+					console.error('获取数据失败:', error);
+				});
+		}
+	</script>
+</head>
+
+
+<body>
+	<div class="upper">
+		<div class="container">
+			<div class="col">
+			  <img src="../static/img/logo.png" alt="">
+			</div>
+			<div class="float-right">
+				<a href="https://github.com/hapsyou/humor" >开源</a>
+			</div>
+		</div>
+	</div>
+	<!--展示鸡汤-->
+	<div class="lower">
+		<div class="center">
+			<span></span>
+		</div>
+		<!--刷新鸡汤-->
+		<div class="button-location">
+			<button onclick="fetchData()">刷新</button>
+		</div>
+	</div>
+</body>
+</html>
