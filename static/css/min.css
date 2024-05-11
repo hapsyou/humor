@@ -30,6 +30,7 @@
     position: absolute; /* 元素相对定位 */
     left: 15%; /* 水平方向从15%开始 */
     right: 15%;
+    font-size: 25px;
 }
 
 .button-location {

@@ -1,16 +1,24 @@
 # -*- coding: utf-8 -*-
 
 from random import choice
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+import pymysql
 
 app = Flask(__name__)
 
-humor_list = []
+username = ""
+password = ""
+host = ""
+dbname = ""
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@localhost/dbname'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{username}:{password}@{host}/{dbname}?charset=utf8'.format(
+    username=username, password=password, host=host, dbname=dbname
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+data = []
 
 
 class Wit(db.Model):
@@ -26,15 +34,19 @@ class Wit(db.Model):
 
 
 def cache_humors():
-    humor_list.extend([wit.title for wit in Wit.query.with_entities(Wit.title).all()])
+    return data.extend([wit.title for wit in Wit.query.with_entities(Wit.title).all()])
 
 
-@app.route('/index')
+@app.route('/index/msg')
 def humors():
-    if not humor_list:
+    if not data:
         cache_humors()
+    return choice(data)
 
-    return choice(humor_list)
+
+@app.route('/')
+def humors_index():
+    return render_template("index.html")
 
 
 if __name__ == '__main__':

@@ -30,14 +30,14 @@
 		};
 		function fetchData() {
 			// 使用fetch发送GET请求
-			fetch('https://www.jecc.top/index')
+			fetch('https://www.jecc.top/index/msg')
 				.then(function(response) {
 					// 确保请求成功
 					if (!response.ok) {
 						throw new Error('网络响应错误');
 					}
 					// 解析响应的JSON数据
-					return response.json();
+					return response.text();
 				})
 				.then(function(data) {
 					// 更新span标签的内容
